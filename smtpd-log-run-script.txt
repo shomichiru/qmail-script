@@ -1,0 +1,4 @@
+#!/bin/sh
+
+exec env - PATH="/var/qmail/bin:$PATH" \
+setuidgid qmails multilog t s1000000 n20 /var/log/qmail/smtpd

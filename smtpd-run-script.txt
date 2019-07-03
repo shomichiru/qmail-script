@@ -1,0 +1,6 @@
+#!/bin/sh
+
+exec env - PATH="/var/qmail/bin:$PATH" \
+tcpserver -vHRl0 -x /home/vpopmail/etc/tcp.smtp.cdb \
+-u `id -u vpopmail` -g `id -g vpopmail` 0 smtp \
+qmail-smtpd example.com /home/vpopmail/bin/vchkpw /bin/true 2>&1

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+exec env - PATH="/var/qmail/bin:$PATH" \
+tcpserver-ssl -v -s -x /home/vpopmail/etc/tcp.smtp.cdb \
+-n /var/qmail/control/clientcert.pem \
+-R -H -l0 -u `id -u vpopmail` -g `id -g vpopmail` 0 smtps \
+qmail-smtpd example.com /home/vpopmail/bin/vchkpw /bin/true 2>&1
